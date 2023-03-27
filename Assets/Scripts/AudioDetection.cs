@@ -7,31 +7,26 @@ public class AudioDetection : MonoBehaviour
 {
     private AudioClip microphoneClip;
 
-    public int sampleWindow = 64; // get data before
-    // Start is called before the first frame update
+    public int sampleWindow = 64;
+    public int sampleRate = 96000;   // match [generateandplaysound] script
+
     void Start()
     {
         MicrophoneToAudioClip();
     }
 
-
-
     public void MicrophoneToAudioClip()
     {
         string microphoneName = Microphone.devices[0];
-        microphoneClip = Microphone.Start(microphoneName, true, 20, AudioSettings.outputSampleRate);
-                    // true = loop
-                    // 20 = length of audio clip
+        microphoneClip = Microphone.Start(microphoneName, true, 20, sampleRate);
     }
-
 
     public float GetLoudnessFromMicrophone()
     {
         return GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
     }
 
-
-    public float GetLoudnessFromAudioClip(int clipPosition, AudioClip clip)    // requires clip input
+    public float GetLoudnessFromAudioClip(int clipPosition, AudioClip clip)
     {
         int startPosition = clipPosition - sampleWindow;
 
@@ -45,7 +40,7 @@ public class AudioDetection : MonoBehaviour
 
         float totalLoudness = 0;
 
-        for (int i = 0; i < sampleWindow; i++)        // calc loudness
+        for (int i = 0; i < sampleWindow; i++)
         {
             totalLoudness += Mathf.Abs(waveData[i]);
         }
