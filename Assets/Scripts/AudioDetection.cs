@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 
 public class AudioDetection : MonoBehaviour
@@ -8,7 +9,7 @@ public class AudioDetection : MonoBehaviour
     private AudioClip microphoneClip;
 
     public int sampleWindow = 64;
-    public int sampleRate = 96000;   // match [generateandplaysound] script
+    public int sampleRate = 96000;
 
     void Start()
     {
@@ -45,5 +46,23 @@ public class AudioDetection : MonoBehaviour
             totalLoudness += Mathf.Abs(waveData[i]);
         }
         return totalLoudness / sampleWindow;
+    }
+
+    public void SaveRecordingLongDuration()
+    {
+        StartCoroutine(SaveRecordingAfterDelay(20f, "UltrasoundRecording.wav"));
+    }
+
+    public IEnumerator SaveRecordingAfterDelay(float delay, string filename)
+    {
+        yield return new WaitForSeconds(delay);
+        SaveRecordingToWavFile(filename);
+    }
+
+    public void SaveRecordingToWavFile(string filename)
+    {
+        string filepath = Path.Combine(Application.persistentDataPath, filename);
+        SavWav.Save(filepath, microphoneClip);
+        Debug.Log("Recording saved to: " + filepath);
     }
 }
