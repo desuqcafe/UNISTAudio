@@ -8,15 +8,15 @@ public class ButtonManager : MonoBehaviour
     private bool isButtonClicked = false;
 
     public TextMeshProUGUI textMeshProUGUI1;
-public TextMeshProUGUI textMeshProUGUI2;
-public TextMeshProUGUI textMeshProUGUI3;
+    public TextMeshProUGUI textMeshProUGUI2;
+    public TextMeshProUGUI textMeshProUGUI3;
 
-public GameObject gameObject1;
-public GameObject gameObject2;
-public GameObject gameObject3;
+    public GameObject gameObject1;
+    public GameObject gameObject2;
+    public GameObject gameObject3;
 
-public void ButtonClicked(int buttonIndex)
-{
+    public void ButtonClicked(int buttonIndex)
+    {
     TextMeshProUGUI textMeshProUGUI;
     GameObject gameObject;
 
@@ -51,5 +51,5 @@ public void ButtonClicked(int buttonIndex)
     }
     
     isButtonClicked = !isButtonClicked;
-}
+    }
 }
