@@ -14,9 +14,10 @@ public class GenerateandPlaySound : MonoBehaviour
 
     private AudioSource audioSource;
 
-    void Start()
+    private void SetupFile()
     {
         audioSource = GetComponent<AudioSource>();
+        Debug.Log("AudioSource: " + audioSource);
 
         float[] samples = new float[(int)(duration * sampleRate)];
         for (int i = 0; i < samples.Length; i++)
@@ -28,8 +29,21 @@ public class GenerateandPlaySound : MonoBehaviour
         audioClip.SetData(samples, 0);
 
         audioSource.clip = audioClip;
-        audioSource.Play();
+    }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetupFile();
+            audioSource.Play();
+            Debug.Log("Audio Playing");
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            audioSource.Stop();
+            Debug.Log("Audio Stopped");
+        }
     }
 
 }

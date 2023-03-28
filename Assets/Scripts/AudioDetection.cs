@@ -19,7 +19,10 @@ public class AudioDetection : MonoBehaviour
     public void MicrophoneToAudioClip()
     {
         string microphoneName = Microphone.devices[0];
-        microphoneClip = Microphone.Start(microphoneName, true, 20, sampleRate);
+        
+        Debug.Log("Microphone: " + microphoneName);
+
+        microphoneClip = Microphone.Start(microphoneName, true, 10, sampleRate);  // 10 sec
     }
 
     public float GetLoudnessFromMicrophone()
@@ -50,7 +53,7 @@ public class AudioDetection : MonoBehaviour
 
     public void SaveRecordingLongDuration()
     {
-        StartCoroutine(SaveRecordingAfterDelay(20f, "UltrasoundRecording.wav"));
+        StartCoroutine(SaveRecordingAfterDelay(10f, "UltrasoundRecording.wav"));
     }
 
     public IEnumerator SaveRecordingAfterDelay(float delay, string filename)

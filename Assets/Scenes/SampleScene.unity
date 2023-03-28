@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 42879840}
   - component: {fileID: 42879839}
   m_Layer: 5
-  m_Name: Record Sound 20s
+  m_Name: Record Sound 10s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2285,8 +2285,8 @@ MonoBehaviour:
   minScale: {x: 1, y: 1, z: 1}
   maxScale: {x: 2, y: 2, z: 2}
   detector: {fileID: 916966480}
-  loudnessSensitivity: 12
-  threshold: 0.1
+  loudnessSensitivity: 9.33
+  threshold: 0.04
 --- !u!1 &1380002307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,7 +3003,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3099,7 +3099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1
   sampleRate: 96000
-  frequency: 20000
+  frequency: 1500
   volume: 0.01
 --- !u!1 &1991731285
 GameObject:
@@ -3398,7 +3398,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Record Sound
 
-    20s'
+    10s'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
