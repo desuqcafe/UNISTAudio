@@ -2,25 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
+//using UnityEngine.Audio;
 
 
 public class AudioDetection : MonoBehaviour
 {
     private AudioClip microphoneClip;
+    public string microphoneName;
+    public TextMeshProUGUI saveLocation;
+
+
 
     public int sampleWindow = 64;
     public int sampleRate = 96000;
 
     void Start()
     {
+        microphoneName = Microphone.devices[0];
         MicrophoneToAudioClip();
     }
 
     public void MicrophoneToAudioClip()
-    {
-        string microphoneName = Microphone.devices[0];
-        
+    {        
         Debug.Log("Microphone: " + microphoneName);
+        //Debug.Log("Speaker mode: " + AudioSettings.speakerMode);
 
         microphoneClip = Microphone.Start(microphoneName, true, 10, sampleRate);  // 10 sec
     }
@@ -67,5 +73,6 @@ public class AudioDetection : MonoBehaviour
         string filepath = Path.Combine(Application.persistentDataPath, filename);
         SavWav.Save(filepath, microphoneClip);
         Debug.Log("Recording saved to: " + filepath);
+        saveLocation.text = filepath;
     }
 }

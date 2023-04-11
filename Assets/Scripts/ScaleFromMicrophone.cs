@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ScaleFromMicrophone : MonoBehaviour
 {
-    public AudioSource source;
     public Vector3 minScale;
     public Vector3 maxScale;
     public AudioDetection detector;

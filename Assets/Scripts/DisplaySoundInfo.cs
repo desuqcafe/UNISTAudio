@@ -6,20 +6,23 @@ using TMPro;
 public class DisplaySoundInfo : MonoBehaviour
 {
     public GenerateandPlaySound generateAndPlaySound;
-    public TextMeshProUGUI frequencyText;
+    public AudioDetection audioDetection;
     public TextMeshProUGUI sampleRateText;
+    public TextMeshProUGUI microphoneText;
 
     void Start()
     {
         UpdateUI();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
+        string microphoneName = Microphone.devices[0];
+
         if (generateAndPlaySound != null)
         {
-            frequencyText.text = "Frequency: " + generateAndPlaySound.frequency + " Hz";
             sampleRateText.text = "Sample Rate: " + generateAndPlaySound.sampleRate + " Hz";
+            microphoneText.text = "Microphone: " + microphoneName;
         }
     }
 
