@@ -9,7 +9,7 @@ public class GenerateandPlaySound : MonoBehaviour
     public TextMeshProUGUI frequencyText;
 
     public float duration = 1.0f;
-    public int sampleRate = 96000;
+    public int sampleRate = 40000;
     public float volume = 0.5f;
     public int currentFrequency = 0;
 

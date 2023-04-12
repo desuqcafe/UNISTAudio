@@ -2602,7 +2602,7 @@ MonoBehaviour:
   microphoneName: 
   saveLocation: {fileID: 265995681}
   sampleWindow: 64
-  sampleRate: 96000
+  sampleRate: 3000
 --- !u!4 &916966481
 Transform:
   m_ObjectHideFlags: 0
@@ -4730,7 +4730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frequencyText: {fileID: 805578337}
   duration: 1
-  sampleRate: 96000
+  sampleRate: 3000
   volume: 0.01
   currentFrequency: 0
 --- !u!1 &1737628274

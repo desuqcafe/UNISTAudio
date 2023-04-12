@@ -15,7 +15,7 @@ public class AudioDetection : MonoBehaviour
 
 
     public int sampleWindow = 64;
-    public int sampleRate = 96000;
+    public int sampleRate = 40000;
 
     void Start()
     {
